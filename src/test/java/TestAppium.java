@@ -37,5 +37,8 @@ public class TestAppium {
         driver.findElement(By.id("com.xueqiu.android:id/home_search")).click();
         //定位搜索页搜索框
         driver.findElement(By.id("com.xueqiu.android:id/search_input_text")).sendKeys("alibaba");
+        //定位阿里巴巴股票
+        driver.findElement(By.xpath("//*[@text='BABA']")).click();
+        System.out.println("打印："+driver.findElement(By.xpath("(//*[@resource-id='com.xueqiu.android:id/current_price'])[1]")).getText());
     }
 }
