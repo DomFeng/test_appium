@@ -1,5 +1,8 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -9,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class SnowBallTest extends BaseTest{
@@ -33,4 +37,19 @@ public class SnowBallTest extends BaseTest{
             }
         }
     }
+
+    @Test
+    public void swipeTest(){
+        try {
+            int width = driver.manage().window().getSize().getWidth();
+            int height = driver.manage().window().getSize().getHeight();
+            Thread.sleep(15000);
+            TouchAction touchAction = new TouchAction(driver);
+            touchAction.press(PointOption.point((int)(width*0.5),(int)(height*0.8))).waitAction(WaitOptions.waitOptions(Duration.ofMillis(5000)))
+                    .moveTo(PointOption.point((int)(width*0.5),(int)(height*0.2))).release().perform();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
