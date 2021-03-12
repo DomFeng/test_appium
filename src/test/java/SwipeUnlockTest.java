@@ -48,5 +48,4 @@ public class SwipeUnlockTest{
             e.printStackTrace();
         }
     }
-
 }
