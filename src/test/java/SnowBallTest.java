@@ -52,4 +52,11 @@ public class SnowBallTest extends BaseTest{
         }
     }
 
+    @Test
+    public void priceTest(){
+        driver.findElement(By.id("com.xueqiu.android:id/home_search")).click();
+        driver.findElement(By.id("com.xueqiu.android:id/search_input_text")).sendKeys("alibaba");
+        driver.findElement(By.xpath("//*[@text='BABA']")).click();
+        System.out.println(driver.findElement(By.xpath("//*[@text='09988']/../../..//*[@resource-id='com.xueqiu.android:id/current_price']")).getText());
+    }
 }
