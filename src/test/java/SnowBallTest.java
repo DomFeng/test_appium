@@ -70,5 +70,16 @@ public class SnowBallTest extends BaseTest{
         driver.findElementByAndroidUIAutomator("new UiSelector().className(\"android.widget.TextView\").text(\"交易\")").click();
     }
 
+    @Test
+    public void scrollTest(){
+        try {
+            AndroidDriver<MobileElement> driver = (AndroidDriver<MobileElement>) this.driver;
+            Thread.sleep(10000);
+            driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text(\"大徐子\").instance(0))");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
