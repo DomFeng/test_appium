@@ -1,4 +1,5 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
@@ -59,4 +60,15 @@ public class SnowBallTest extends BaseTest{
         driver.findElement(By.xpath("//*[@text='BABA']")).click();
         System.out.println(driver.findElement(By.xpath("//*[@text='09988']/../../..//*[@resource-id='com.xueqiu.android:id/current_price']")).getText());
     }
+
+    @Test
+    public void uiautomatorSelectTest(){
+        AndroidDriver<MobileElement> driver = (AndroidDriver<MobileElement>) this.driver;
+        //通过resourceId来定位
+        //driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.xueqiu.android:id/tab_name\").text(\"交易\")").click();
+        //通过className来定位
+        driver.findElementByAndroidUIAutomator("new UiSelector().className(\"android.widget.TextView\").text(\"交易\")").click();
+    }
+
+
 }
