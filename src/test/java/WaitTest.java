@@ -18,6 +18,5 @@ public class WaitTest extends BaseTest{
         WebElement ali = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='BABA']")));
         System.out.println(ali.getAttribute("enabled"));
         ali.click();
-
     }
 }
